@@ -1,6 +1,29 @@
 # CHANGELOG
 
 
+## v0.8.6 (2025-09-12)
+
+### Bug Fixes
+
+- Prefer exact station matches in lookup
+  ([#21](https://github.com/davidyen1124/caltrain-mcp/pull/21),
+  [`463f35c`](https://github.com/davidyen1124/caltrain-mcp/commit/463f35ce309a385ba51ce68ba63e72d6ead5b33b))
+
+* fix: prefer exact station matches in lookup
+
+Prioritize exact normalized name equality, then prefix matches, then substring. Prevents 'San
+  Francisco' resolving to 'South San Francisco' due to substring match.
+
+Verified via MCP Inspector: - tools/list OK - list_stations OK (GTFS loads) - next_trains OK for
+  'San Jose Diridon' -> 'San Francisco'
+
+No API changes; pure internal matching logic tweak.
+
+* chore: remove local MCP Inspector config from repo
+
+* test: add station matching cases for exact vs prefix vs substring and SSF abbreviation
+
+
 ## v0.8.5 (2025-09-12)
 
 ### Chores
