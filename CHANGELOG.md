@@ -1,6 +1,16 @@
 # CHANGELOG
 
 
+## v0.8.5 (2025-09-12)
+
+### Chores
+
+- Refresh GTFS feed
+  ([`db262ab`](https://github.com/davidyen1124/caltrain-mcp/commit/db262ab8e71a83b12472af7a0dd69b494d280767))
+
+Co-authored-by: caltrain-bot <caltrain-bot@users.noreply.github.com>
+
+
 ## v0.8.4 (2025-06-30)
 
 ### Chores
