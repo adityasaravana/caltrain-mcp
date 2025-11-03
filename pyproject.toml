@@ -11,6 +11,8 @@ dependencies = [
     "mcp>=1.9.1",
     "pandas>=2.2.3",
     "smithery>=0.2.0",
+    "uvicorn>=0.30.0",
+    "starlette>=0.37.0",
 ]
 
 [project.scripts]

@@ -157,7 +157,13 @@ async def list_stations() -> str:
 
 
 def main() -> None:
-    """Main entry point for the MCP server."""
+    """Main entry point for the MCP server.
+
+    Uses stdio transport for local CLI usage, or HTTP for Smithery deployment.
+    """
+    # Check if running in Smithery (PORT env var indicates HTTP mode)
+    port = os.getenv("PORT")
+
     # Only load GTFS data when not in test mode
     if os.getenv("PYTEST_CURRENT_TEST") is None and "pytest" not in sys.modules:
         try:
@@ -172,7 +178,28 @@ def main() -> None:
             print(f"Error loading GTFS data: {e}", file=sys.stderr)
             sys.exit(1)
 
-    mcp.run(transport="stdio")
+    # Use HTTP transport if PORT is set (Smithery deployment)
+    if port:
+        import uvicorn
+        from starlette.middleware.cors import CORSMiddleware
+
+        print(f"Starting HTTP server on port {port}...", file=sys.stderr)
+        app = mcp.streamable_http_app()
+
+        app.add_middleware(
+            CORSMiddleware,
+            allow_origins=["*"],
+            allow_credentials=True,
+            allow_methods=["GET", "POST", "OPTIONS"],
+            allow_headers=["*"],
+            expose_headers=["mcp-session-id", "mcp-protocol-version"],
+            max_age=86400,
+        )
+
+        uvicorn.run(app, host="0.0.0.0", port=int(port), log_level="info")
+    else:
+        # Use stdio transport for local CLI usage
+        mcp.run(transport="stdio")
 
 
 if __name__ == "__main__":
