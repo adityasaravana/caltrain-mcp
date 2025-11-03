@@ -7,10 +7,17 @@ import sys
 from datetime import datetime
 
 from mcp.server.fastmcp import FastMCP
+from smithery import Server
 
 from . import gtfs
 
 mcp = FastMCP("caltrain")
+
+
+@Server("caltrain")
+def create_server() -> FastMCP:
+    """Create and return the Caltrain MCP server instance for Smithery deployment."""
+    return mcp
 
 
 @mcp.tool()
