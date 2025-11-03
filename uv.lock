@@ -26,15 +26,6 @@ wheels = [
 ]
 
 [[package]]
-name = "art"
-version = "6.5"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/d4/7d/7d80509bbd19fb747edef94ba487dbadd2747944774ccc0528ad0d005a36/art-6.5.tar.gz", hash = "sha256:a98d77b42c278697ec6cf4b5bdcdfd997f6b2425332da078d4e31e31377d1844", size = 672902, upload-time = "2025-04-12T17:02:20.279Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/67/29/57b06fdb3abdf52c621d3ca3caea735e2db4c8d48288ebd26af448e8e247/art-6.5-py3-none-any.whl", hash = "sha256:70706408144c45c666caab690627d5c74aea7b6c7ce8cc968408ddeef8d84afd", size = 610382, upload-time = "2025-04-12T17:02:21.97Z" },
-]
-
-[[package]]
 name = "build"
 version = "1.2.2.post1"
 source = { registry = "https://pypi.org/simple" }
@@ -55,7 +46,6 @@ source = { editable = "." }
 dependencies = [
     { name = "mcp" },
     { name = "pandas" },
-    { name = "smithery" },
     { name = "starlette" },
     { name = "uvicorn" },
 ]
@@ -76,7 +66,6 @@ dev = [
 requires-dist = [
     { name = "mcp", specifier = ">=1.9.1" },
     { name = "pandas", specifier = ">=2.2.3" },
-    { name = "smithery", specifier = ">=0.2.0" },
     { name = "starlette", specifier = ">=0.37.0" },
     { name = "uvicorn", specifier = ">=0.30.0" },
 ]
@@ -847,23 +836,6 @@ wheels = [
 ]
 
 [[package]]
-name = "smithery"
-version = "0.4.4"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "art" },
-    { name = "pydantic" },
-    { name = "starlette" },
-    { name = "toml" },
-    { name = "typer" },
-    { name = "uvicorn" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/1e/75/d0b0fc1a5c10a20f3e01cefd98276ccbe7b44d74eeb6551bd2f42d8b4768/smithery-0.4.4.tar.gz", hash = "sha256:18ae19af8405e6476ca4984036d4460822ec1647ad2262addb4909d03387d671", size = 17396, upload-time = "2025-10-24T15:47:44.543Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/30/54/a088fa621c9c76a72a70079fac42b822137a1609ec08525168bd8e9f415d/smithery-0.4.4-py3-none-any.whl", hash = "sha256:883d060b3ecc73a2972019760e342f5a04b62edf18e3bc03594a41851319808a", size = 25372, upload-time = "2025-10-24T15:47:43.045Z" },
-]
-
-[[package]]
 name = "smmap"
 version = "5.0.2"
 source = { registry = "https://pypi.org/simple" }
@@ -907,36 +879,12 @@ wheels = [
 ]
 
 [[package]]
-name = "toml"
-version = "0.10.2"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/be/ba/1f744cdc819428fc6b5084ec34d9b30660f6f9daaf70eead706e3203ec3c/toml-0.10.2.tar.gz", hash = "sha256:b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f", size = 22253, upload-time = "2020-11-01T01:40:22.204Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/44/6f/7120676b6d73228c96e17f1f794d8ab046fc910d781c8d151120c3f1569e/toml-0.10.2-py2.py3-none-any.whl", hash = "sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b", size = 16588, upload-time = "2020-11-01T01:40:20.672Z" },
-]
-
-[[package]]
 name = "tomlkit"
 version = "0.13.2"
 source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/b1/09/a439bec5888f00a54b8b9f05fa94d7f901d6735ef4e55dcec9bc37b5d8fa/tomlkit-0.13.2.tar.gz", hash = "sha256:fff5fe59a87295b278abd31bec92c15d9bc4a06885ab12bcea52c71119392e79", size = 192885, upload-time = "2024-08-14T08:19:41.488Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/f9/b6/a447b5e4ec71e13871be01ba81f5dfc9d0af7e473da256ff46bc0e24026f/tomlkit-0.13.2-py3-none-any.whl", hash = "sha256:7a974427f6e119197f670fbbbeae7bef749a6c14e793db934baefc1b5f03efde", size = 37955, upload-time = "2024-08-14T08:19:40.05Z" },
-]
-
-[[package]]
-name = "typer"
-version = "0.20.0"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "click" },
-    { name = "rich" },
-    { name = "shellingham" },
-    { name = "typing-extensions" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/8f/28/7c85c8032b91dbe79725b6f17d2fffc595dff06a35c7a30a37bef73a1ab4/typer-0.20.0.tar.gz", hash = "sha256:1aaf6494031793e4876fb0bacfa6a912b551cf43c1e63c800df8b1a866720c37", size = 106492, upload-time = "2025-10-20T17:03:49.445Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/78/64/7713ffe4b5983314e9d436a90d5bd4f63b6054e2aca783a3cfc44cb95bbf/typer-0.20.0-py3-none-any.whl", hash = "sha256:5b463df6793ec1dca6213a3cf4c0f03bc6e322ac5e16e13ddd622a889489784a", size = 47028, upload-time = "2025-10-20T17:03:47.617Z" },
 ]
 
 [[package]]

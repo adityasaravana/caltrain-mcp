@@ -10,7 +10,6 @@ requires-python = ">=3.12"
 dependencies = [
     "mcp>=1.9.1",
     "pandas>=2.2.3",
-    "smithery>=0.2.0",
     "uvicorn>=0.30.0",
     "starlette>=0.37.0",
 ]
@@ -94,6 +93,3 @@ patch_tags = ["fix", "perf", "docs", "chore"]
 
 [tool.semantic_release.remote.token]
 env = "GITHUB_TOKEN"
-
-[tool.smithery]
-server = "caltrain_mcp.server:create_server"
