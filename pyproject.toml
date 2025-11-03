@@ -1,6 +1,6 @@
 [project]
 name = "caltrain-mcp"
-dynamic = ["version"]
+version = "0.8.6"
 description = "Model Context Protocol server for Caltrain schedules"
 readme = "README.md"
 authors = [
@@ -75,20 +75,6 @@ addopts = [
     "--strict-markers",
     "--strict-config",
     "--disable-warnings",
-]
-
-[tool.hatch.version]
-source = "vcs"
-fallback-version = "0.0.0"
-
-[tool.hatch.build.targets.wheel]
-packages = ["src/caltrain_mcp"]
-
-[tool.hatch.build.targets.sdist]
-include = [
-  "src/**",
-  "README.md",
-  "LICENSE.md",
 ]
 
 [tool.semantic_release]
