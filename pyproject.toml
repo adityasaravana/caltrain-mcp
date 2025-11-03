@@ -6,10 +6,11 @@ readme = "README.md"
 authors = [
     { name = "David Yen", email = "davidyen1124@gmail.com" }
 ]
-requires-python = ">=3.13"
+requires-python = ">=3.12"
 dependencies = [
     "mcp>=1.9.1",
     "pandas>=2.2.3",
+    "smithery>=0.2.0",
 ]
 
 [project.scripts]
@@ -17,8 +18,8 @@ caltrain-mcp = "caltrain_mcp.server:main"
 caltrain-lint = "scripts.lint:main"
 
 [build-system]
-requires = ["hatchling", "hatch-vcs"]
-build-backend = "hatchling.build"
+requires = ["uv_build>=0.8.15,<0.9.0"]
+build-backend = "uv_build"
 
 [dependency-groups]
 dev = [
@@ -105,3 +106,6 @@ patch_tags = ["fix", "perf", "docs", "chore"]
 
 [tool.semantic_release.remote.token]
 env = "GITHUB_TOKEN"
+
+[tool.smithery]
+server = "caltrain_mcp.server:create_server"
