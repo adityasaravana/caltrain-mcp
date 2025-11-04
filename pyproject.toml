@@ -1,6 +1,6 @@
 [project]
 name = "caltrain-mcp"
-dynamic = ["version"]
+version = "0.8.6"
 description = "Model Context Protocol server for Caltrain schedules"
 readme = "README.md"
 authors = [
@@ -10,15 +10,18 @@ requires-python = ">=3.13"
 dependencies = [
     "mcp>=1.9.1",
     "pandas>=2.2.3",
+    "smithery>=0.4.2",
 ]
 
 [project.scripts]
 caltrain-mcp = "caltrain_mcp.server:main"
 caltrain-lint = "scripts.lint:main"
+dev = "smithery.cli.dev:main"
+playground = "smithery.cli.playground:main"
 
 [build-system]
-requires = ["hatchling", "hatch-vcs"]
-build-backend = "hatchling.build"
+requires = ["uv_build>=0.8.15,<0.9.0"]
+build-backend = "uv_build"
 
 [dependency-groups]
 dev = [
@@ -76,20 +79,6 @@ addopts = [
     "--disable-warnings",
 ]
 
-[tool.hatch.version]
-source = "vcs"
-fallback-version = "0.0.0"
-
-[tool.hatch.build.targets.wheel]
-packages = ["src/caltrain_mcp"]
-
-[tool.hatch.build.targets.sdist]
-include = [
-  "src/**",
-  "README.md",
-  "LICENSE.md",
-]
-
 [tool.semantic_release]
 version_source = "tag_only"
 branch = "main"
@@ -105,3 +94,6 @@ patch_tags = ["fix", "perf", "docs", "chore"]
 
 [tool.semantic_release.remote.token]
 env = "GITHUB_TOKEN"
+
+[tool.smithery]
+server = "caltrain_mcp.server:create_server"
