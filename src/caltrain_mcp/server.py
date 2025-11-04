@@ -18,7 +18,7 @@ def create_server() -> FastMCP:
     mcp = FastMCP("caltrain")
 
     @mcp.tool()
-    async def next_trains(
+    def next_trains(
         origin: str, destination: str, when_iso: str | None = None
     ) -> str:
         """Return the next few scheduled Caltrain departures.
@@ -135,7 +135,7 @@ def create_server() -> FastMCP:
 
 
     @mcp.tool()
-    async def list_stations() -> str:
+    def list_stations() -> str:
         """List all available Caltrain stations.
 
         This tool is useful when you need to find the exact station names, especially if
